@@ -1,4 +1,4 @@
 class HomeController < ApplicationController
-  def contacts
+  def create
   end
 end
