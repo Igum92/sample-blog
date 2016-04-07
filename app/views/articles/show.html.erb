@@ -1,7 +1,44 @@
-<h1><%= @article.title %></h1>
-<p>
+<h2><%= @article.title %></h2>
+
+<i>
 	<%= @article.text %>
-</p>
+</i>
+<br>
+<br>
+<i>
+<b>
+Comments:
+</b>
+</i>
+<br>
+
+<% @article.comments.each do |comment| %>
+<br>
+<font color="grey">
+	<b>
+	 	<%= comment.author %>
+ 	</b>
+
+
+<small> 
+
+ 	write at: 
+
+ 	<%= comment.created_at %>
+
+</small> 
+
+
+ <br>
+
+	 <i>
+	 	<%= comment.body %>
+ 	</i>
+</font>
+<br>
+<hr />
+
+ <% end %>
 
 <p>
 
