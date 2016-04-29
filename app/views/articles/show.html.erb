@@ -1,63 +1,77 @@
-<h2><%= @article.title %></h2>
+<div class = "row">
+<div class="col-xs-12">
 
-<i>
-	<%= @article.text %>
-</i>
-<br>
-<br>
-<i>
-<b>
-Comments:
-</b>
-</i>
-<br>
-
-<% @article.comments.each do |comment| %>
-<br>
-<font color="grey">
-	<b>
-	 	<%=current_user.username %> 
- 	</b>
-
-
-<small> 
-
- 	write at: 
-
- 	<%= comment.created_at %>
-
-</small> 
-
-
- <br>
-
-	 <i>
-	 	<%= comment.body %>
- 	</i>
-</font>
-<br>
-<hr />
-
- <% end %>
-
-<p>
-<i>
-<b>
-Add Comment:
-</b>
-</i>
-
-<%= form_for ([@article, @article.comments.build]) do |f| %>
-
-	<p>
-		<%= f.text_area :body %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-
-
-<% end %>
-
+<p class="lead">
+	<%= @article.title %>
 </p>
+</div>
+</div>
+
+<div class = "row">
+<div class="col-xs-12">
+
+	<i><%= @article.text %></i>
+
+</div>
+</div>
+
+<br>
+<br>
+
+<div class = "row">
+<div class="col-xs-12">
+
+	<i><b>Comments:</b></i>
+
+</div>
+</div>
+
+<br>
+
+<div class = "row">
+<div class="col-xs-12">
+
+	<% @article.comments.each do |comment| %><br>
+
+	<font color="grey">
+	<b> <%= comment.author %></b>
+
+	<small>write at: 
+
+ 	<%= comment.created_at %></small> 
+
+
+ 	<br><i><%= comment.body %></i>
+
+	</font>
+	<br>
+	<hr />
+
+ 	<% end %>
+</div>
+</div>
+
+<div class = "row">
+<div class="col-xs-12">
+
+	<p><i><b>Add Comment:</b></i></p>
+
+</div>
+</div>
+
+
+<div class = "row">
+<div class="col-xs-12">
+
+	<%= form_for ([@article, @article.comments.build]) do |f| %>
+
+	<fieldset class="form-group">
+    <textarea class="form-control" name="comment[body]" id="comment_body" rows="3"></textarea><br>	
+
+		<button type="submit" class="btn btn-success">Add comment</button>
+
+</fieldset>
+	<% end %>
+
+</div>
+</div>
