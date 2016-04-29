@@ -1,6 +1,8 @@
 <p class="text-center lead" >New article </p>
 
 <%= form_for :article, url: articles_path do |f| %>
+
+<input name="article[author]" type="hidden"/ value="<%= current_user.id %>"> 
 <fieldset class="form-group">
 
 		<p class="lead">Title: </p>

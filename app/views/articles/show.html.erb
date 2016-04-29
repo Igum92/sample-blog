@@ -23,6 +23,15 @@
 </div>
 
 <br>
+	
+		<% if @article.author == current_user.id.to_s %> 
+			<%=link_to 'Edit article', edit_article_path(@article) %> |
+			<%= link_to "Delete article", article_path(@article), method: :delete, data: {confirm: 'Do you really want to delete this message?'}%>
+		<% end %>
+
+		</p>
+
+<br>
 <br>
 
 <div class = "row">
@@ -39,7 +48,6 @@
 <div class="col-xs-12">
 
 
-	<input name="article[author]" type="hidden"/ value="<%= current_user.id %>"> 
 	<% @article.comments.each do |comment| %><br>
 
 	<font color="grey">
