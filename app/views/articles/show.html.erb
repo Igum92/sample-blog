@@ -34,7 +34,7 @@
 	<% @article.comments.each do |comment| %><br>
 
 	<font color="grey">
-	<b> <%= comment.author %></b>
+	<b> <%= User.find(comment.author).username %></b>
 
 	<small>write at: 
 
@@ -64,13 +64,14 @@
 <div class="col-xs-12">
 
 	<%= form_for ([@article, @article.comments.build]) do |f| %>
+	<input name="comment[author]" type="hidden"/ value="<%= current_user.id %>"> 
 
 	<fieldset class="form-group">
-    <textarea class="form-control" name="comment[body]" id="comment_body" rows="3"></textarea><br>	
+    	<textarea class="form-control" name="comment[body]" id="comment_body" rows="3"></textarea><br>	
 
 		<button type="submit" class="btn btn-success">Add comment</button>
 
-</fieldset>
+	</fieldset>
 	<% end %>
 
 </div>
