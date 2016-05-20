@@ -14,11 +14,21 @@ describe Article do
 
   describe "#subject" do
     it "returns the article title" do
-      #создаем объект article хитрым способом
+      # создаем объект article хитрым способом
       article = create(:article, title: 'Lorem Ipsum')
 
-      #assert, проверка
+      # assert, проверка
       expect(article.subject).to eq 'Lorem Ipsum'
+    end
+  end
+
+  describe "#last_comment" do
+    it "returns the last comment" do
+      #создаем статью с комментариями
+      article = create(:article_with_comments)
+
+      # проверка
+      expect(article.last_comment.body).to eq "comment body 3"
     end
   end
 end
