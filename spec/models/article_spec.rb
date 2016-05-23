@@ -31,4 +31,12 @@ describe Article do
       expect(article.last_comment.body).to eq "comment body 3"
     end
   end
+
+  describe "validation_length_of" do
+    it "article without title is a valid" do
+      article = Article.new()
+
+      expect(article.valid?).to eq false
+    end
+  end
 end
