@@ -35,8 +35,15 @@ describe Article do
   describe "validation_length_of" do
     it "article without title is a valid" do
       article = Article.new()
-
       expect(article.valid?).to eq false
     end
+
+    it "article without text is a valid" do
+      article = Article.new()
+      expect(article.valid?).to eq false
+    end
+
+
+
   end
 end
