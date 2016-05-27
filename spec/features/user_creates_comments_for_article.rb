@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "Article Creation" do
+feature "Article with comments Creation" do
   before (:all) do
     sign_up
   end
